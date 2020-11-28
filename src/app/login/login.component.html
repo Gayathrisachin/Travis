@@ -1,0 +1,61 @@
+﻿<div class="d-flex flex-column flex-root">
+  
+    <div class="login login-app d-flex flex-column flex-lg-row flex-column-fluid bg-white">
+       
+        <div class="login-aside d-flex flex-column flex-row-auto" style="background-color: #7EBFDB;">
+          
+            <div class="d-flex flex-column-auto flex-column text-center" style="margin-top: 150px;">
+                <a href="#" class="text-center mt-15">
+                    <img src="../../assets/images/136-1366211_group-of-10-guys-login-user-icon-png.png" alt="logo" height="100px">
+                </a>
+                <h3 class="font-weight-bolder  text-white">Please Login 
+                <br>to know more</h3>
+                <p>username:test</p>
+                <p>password:test</p>
+            </div>
+            <div class="aside-img d-flex flex-row-fluid bgi-no-repeat bgi-position-y-bottom bgi-position-x-center"></div>
+        </div>
+    
+        <div class=" d-flex flex-column justify-content-center mx-auto">
+                
+            <div class="d-flex flex-column-fluid flex-center">
+                
+                <div class="login-form login-forgot">
+
+                    <div class="user_card">
+                        
+                        <div class="d-flex justify-content-center">
+                            <div class="brand_logo_container">
+                                <img class="n3VNCb" src="../../assets/images/oie_transparent.png" class="brand_logo">               
+                             </div>
+                        </div>
+                        <div class="d-flex justify-content-center form_container">
+                            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" style="width: 100%;">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" formControlName="username" placeholder="Enter Username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                        <div *ngIf="f.username.errors.required">Username is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" formControlName="password" placeholder="Enter password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                        <div *ngIf="f.password.errors.required">Password is required</div>
+                                    </div>
+                                </div>
+                               
+            
+                                <button [disabled]="loading" class="btn btn-primary d-flex mx-auto">
+                                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                    Login
+                                </button>
+                                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
